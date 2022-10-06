@@ -9,10 +9,13 @@
 </head>
 
 <body>
-    <section class="cart-items">
+
+    <button id="button">ADDCART</button>
+    <button id="add">Click</button>
+    <!-- <section class="cart-items">
         <div class="cart-row">
             <div class="cart-item-column">
-                <!-- <img class="cart-item-img" src="tamil-tsrt.jpg"> -->
+                <img class="cart-item-img" src="tamil-tsrt.jpg">
                 <span>T-shirt</span>
             </div>
             <span>$19.99</span>
@@ -24,7 +27,7 @@
 
         <div class="cart-row">
             <div class="cart-item-column">
-                <!-- <img class="cart-item-img" src="cycle.jpg"> -->
+                <img class="cart-item-img" src="cycle.jpg">
                 <span>Cycle</span>
             </div>
             <span>$19.99</span>
@@ -33,10 +36,35 @@
                 <button class="btn-danger" type="button">ENTER</button>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <script>
-        var removeCartItems = document.getElementsByClassName('')
+        var addCart = document.getElementById('button'),
+            addCart = document.getElementById('add');
+            
+        var product=[
+            {brand:"redmi",model:"note6",price:"10k",color:"white"},
+
+            {brand:"samsung",model:"j7",color:"blue",price:"10k"},
+
+            {brand:"OPPO",model:"s1",price:"15k",color:"white"},
+
+            {brand:"realme",model:"narzo",price:"10k",color:"blue"}
+        ];
+
+        var x=[];
+
+         function call(){
+            let x = prompt("enter number");
+             
+            result = product.find(function(y){
+                return y.brand === x;
+                result = x;
+            })
+            console.log(result);
+         }
+         addCart.addEventListener("click",call);
+
     </script>
 </body>
 
