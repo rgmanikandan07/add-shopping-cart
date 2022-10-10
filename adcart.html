@@ -6,64 +6,81 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- <link rel="stylesheet" href="css/main.js"> -->
 </head>
 
 <body>
 
     <button id="button">ADDCART</button>
-    <button id="add">Click</button>
-    <!-- <section class="cart-items">
-        <div class="cart-row">
-            <div class="cart-item-column">
-                <img class="cart-item-img" src="tamil-tsrt.jpg">
-                <span>T-shirt</span>
-            </div>
-            <span>$19.99</span>
-            <div class="cart-qty-column">
-                <input class="cart-qty-input" type="number" value="0">
-                <button class="btn-danger" type="button">ENTER</button>
-            </div>
-        </div>
-
-        <div class="cart-row">
-            <div class="cart-item-column">
-                <img class="cart-item-img" src="cycle.jpg">
-                <span>Cycle</span>
-            </div>
-            <span>$19.99</span>
-            <div class="cart-qty-column">
-                <input class="cart-qty-input" type="number" value="0">
-                <button class="btn-danger" type="button">ENTER</button>
-            </div>
-        </div>
-    </section> -->
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+    <button id="rem">Remove</button>
 
     <script>
-        var addCart = document.getElementById('button'),
-            addCart = document.getElementById('add');
-            
-        var product=[
-            {brand:"redmi",model:"note6",price:"10k",color:"white"},
+        var btn1 = document.getElementById('button'),
+            btn2 = document.getElementById('plus'),
+            btn3 = document.getElementById('minus'),
+            btn4 = document.getElementById('rem');
 
-            {brand:"samsung",model:"j7",color:"blue",price:"10k"},
 
-            {brand:"OPPO",model:"s1",price:"15k",color:"white"},
+        var product = [
+            { brand: "redmi", model: "note6", price: "10k", color: "white", id: 1 },
 
-            {brand:"realme",model:"narzo",price:"10k",color:"blue"}
+            { brand: "samsung", model: "j7", color: "blue", price: "10k", id: 2 },
+
+            { brand: "OPPO", model: "s1", price: "15k", color: "white", id: 3 },
+
+            { brand: "realme", model: "narzo", price: "10k", color: "blue", id: 4 }
         ];
 
-        var x=[];
+        var array = [];
 
-         function call(){
-            let x = prompt("enter number");
-             
-            result = product.find(function(y){
-                return y.brand === x;
-                result = x;
+        function x1 (){
+            var y1 = parseInt(prompt("enter"));
+            if(y1){
+                var result = product.find(function(yes){
+                    return yes.id === y1;
+                });
+                result.qty = 1;
+                array.push(result);
+                console.log(array);
+            }
+        }
+
+        btn1.addEventListener("click",x1);
+
+        function x2 (){
+           var y2 = parseInt(prompt("enter"));
+              array.map((yes)=>{
+                if(yes.id === y2){
+                    yes.qty += 1;
+                }
+                
+              })
+              console.log(array);
+        }
+        btn2.addEventListener("click",x2);
+
+        function x3 (){
+            var y3 = parseInt(prompt("enter"));
+            array.map((yes)=>{
+                if(yes.id == y3){
+                    yes.qty -= 1;
+                }
+                array.map((yes)=>{
+                    if(yes.qty==0){
+                        array.splice(0);
+                        console.log(array);
+                    }
+                })
             })
-            console.log(result);
-         }
-         addCart.addEventListener("click",call);
+            console.log(array);
+        }
+        btn3.addEventListener("click",x3);
+
+        
+
+        
 
     </script>
 </body>
