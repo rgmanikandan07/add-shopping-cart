@@ -35,10 +35,10 @@
 
         var array = [];
 
-        function x1 (){
+        function x1() {
             var y1 = parseInt(prompt("enter"));
-            if(y1){
-                var result = product.find(function(yes){
+            if (y1) {
+                var result = product.find(function (yes) {
                     return yes.id === y1;
                 });
                 result.qty = 1;
@@ -47,28 +47,28 @@
             }
         }
 
-        btn1.addEventListener("click",x1);
+        btn1.addEventListener("click", x1);
 
-        function x2 (){
-           var y2 = parseInt(prompt("enter"));
-              array.map((yes)=>{
-                if(yes.id === y2){
+        function x2() {
+            var y2 = parseInt(prompt("enter"));
+            array.map((yes) => {
+                if (yes.id === y2) {
                     yes.qty += 1;
                 }
-                
-              })
-              console.log(array);
-        }
-        btn2.addEventListener("click",x2);
 
-        function x3 (){
+            })
+            console.log(array);
+        }
+        btn2.addEventListener("click", x2);
+
+        function x3() {
             var y3 = parseInt(prompt("enter"));
-            array.map((yes)=>{
-                if(yes.id == y3){
+            array.map((yes) => {
+                if (yes.id == y3) {
                     yes.qty -= 1;
                 }
-                array.map((yes)=>{
-                    if(yes.qty==0){
+                array.map((yes) => {
+                    if (yes.qty == 0) {
                         array.splice(0);
                         console.log(array);
                     }
@@ -76,11 +76,22 @@
             })
             console.log(array);
         }
-        btn3.addEventListener("click",x3);
+        btn3.addEventListener("click", x3);
 
-        
+        function rem() {
+            var a = parseInt(prompt("delete product"));
+            var find = array.find(element => element.id === a);
+            if (find) {
+                let ind = array.findIndex(m => m.id === a);
+                array.splice(ind, 1)
+            }
+            console.log(array);
+        }
+        btn4.addEventListener("click", rem);
 
-        
+
+
+
 
     </script>
 </body>
